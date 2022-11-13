@@ -16,7 +16,7 @@ spec:
         app: health-app-pod
     spec:
       containers:
-        - image: vladi15151/nuclear-bot-health-service:0.2
+        - image: vladi15151/nuclear-bot-health-service:0.3
           name: health-app-pod
           ports:
             - name: http
