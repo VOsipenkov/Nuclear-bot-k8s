@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-app-deployment
+  labels:
+    app: health-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: health-app-pod
+  template:
+    metadata:
+      name: health-app-pod
+      labels:
+        app: health-app-pod
+    spec:
+      containers:
+        - image: vladi15151/nuclear-bot-health-service:0.2
+          name: health-app-pod
+          ports:
+            - name: http
+              containerPort: 8888
+              protocol: TCP
