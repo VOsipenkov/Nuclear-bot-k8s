@@ -22,4 +22,10 @@ spec:
                 name: health-app-service
                 port:
                   number: 80
+          - path: /jsonrpc
+            pathType: Prefix
+            backend:
+              service:
+                name: parsing-service
+                port: 80
     
