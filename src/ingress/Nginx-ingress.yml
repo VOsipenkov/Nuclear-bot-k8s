@@ -26,6 +26,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: parsing-service
-                port: 80
+                name: parsing-processor-service
+                port:
+                  number: 80
     
