@@ -1,6 +1,6 @@
 # k8s
 
-To config ingress
+# To config ingress
 
 https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.41.2/deploy/static/provider/cloud/deploy.yaml
 this deploys ingress controller
@@ -12,3 +12,18 @@ kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 fix issue with certs
 
 then can deploy ingress
+
+ # (Config kafka)
+first
+https://levelup.gitconnected.com/how-to-deploy-apache-kafka-with-kubernetes-9bd5caf7694f
+about plug in kafka and zookeeper containters
+
+second
+kubectl port-forward kafka-broker-7b9956674b-552dt 9092
+
+third
+then config kafka tool
+localhost 9092
+
+
+

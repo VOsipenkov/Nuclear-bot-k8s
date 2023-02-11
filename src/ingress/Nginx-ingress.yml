@@ -26,7 +26,34 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: parsing-processor-service
+                name: core-service
                 port:
                   number: 80
-    
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kafka-service # Название вашего Kafka-сервиса
+                port:
+                  number: 30092 # Название порта, используемого для Kafka
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kafka-service # Название вашего Kafka-сервиса
+                port:
+                  name: kafka-port # Название порта, используемого для Kafka
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kafka-service # Название вашего Kafka-сервиса
+                port:
+                  number: 9092 # Название порта, используемого для Kafka
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zookeeper-service
+                port:
+                  name: zookeeper-port4
