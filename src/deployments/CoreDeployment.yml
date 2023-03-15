@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: parsing-processor-deployment
+  name: core-deployment
   labels:
-    app: parsing-processor-deployment
+    app: core-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: parsing-processor-pod
+      app: core-pod
   template:
     metadata:
-      name: parsing-processor-pod
+      name: core-pod
       labels:
-        app: parsing-processor-pod
+        app: core-pod
     spec:
       containers:
-        - name: parsing-processor
-          image: vladi15151/parsing-processor:0.3
+        - name: nuclear-bot-core
+          image: vladi15151/nuclear-bot-core:0.5
           ports:
             - name: http
               containerPort: 8080
