@@ -48,7 +48,7 @@ spec:
               value: PLAINTEXT://localhost:9092
             # Creates a topic with one partition and one replica.
             - name: KAFKA_CREATE_TOPICS
-              value: "bomc:1:1"
+              value: "PARSER.EVENT:1:1"
             - name: MY_POD_IP
               valueFrom:
                 fieldRef:
