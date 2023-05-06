@@ -41,3 +41,5 @@ spec:
               value: "yes"
             - name: ALLOW_ANONYMOUS_LOGIN
               value: "yes"
+            - name: KAFKA_CREATE_TOPICS
+              value: "PARSEREVENT:1:1"

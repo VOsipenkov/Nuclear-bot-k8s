@@ -47,8 +47,10 @@ spec:
             - name: KAFKA_ADVERTISED_LISTENERS
               value: PLAINTEXT://localhost:9092
             # Creates a topic with one partition and one replica.
+            - name: KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE
+              value: "true"
             - name: KAFKA_CREATE_TOPICS
-              value: "PARSER.EVENT:1:1"
+              value: "PARSEREVENT:1:1"
             - name: MY_POD_IP
               valueFrom:
                 fieldRef:

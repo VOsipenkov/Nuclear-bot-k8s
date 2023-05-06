@@ -19,7 +19,7 @@ https://levelup.gitconnected.com/how-to-deploy-apache-kafka-with-kubernetes-9bd5
 about plug in kafka and zookeeper containters
 
 second
-kubectl port-forward kafka-broker-7b9956674b-552dt 9092
+kubectl port-forward kafka-broker-c856f4d9b-tcrcp 9092
 
 third
 then config kafka tool
