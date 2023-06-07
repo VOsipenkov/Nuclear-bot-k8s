@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parser-agent-ua-deployment
+  labels:
+    app: parser-ua
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: parser-ua-pod
+  template:
+    metadata:
+      name: parser-ua-pod
+      labels:
+        app: parser-ua-pod
+    spec:
+      containers:
+        - name: parser-ua-pod
+          image: vladi15151/nuclear-bot-parsing-agent-ua:0.2
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+
