@@ -5,14 +5,13 @@ metadata:
     app: kafka-service
   name: kafka-service
 spec:
-  type: NodePort
-  ports:
-    - name: kafka-port
-      port: 9092
-      nodePort: 30092
-      targetPort: 9092
   selector:
     app: kafka-broker
+  ports:
+    - name: kafka-port
+#      protocol: TCP
+      port: 9092
+      targetPort: 9092
 ---
 apiVersion: apps/v1
 kind: Deployment

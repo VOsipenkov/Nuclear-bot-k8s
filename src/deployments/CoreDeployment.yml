@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: core-deployment
+  name: core
   labels:
-    app: core-deployment
+    app: core
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: core-pod
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nuclear-bot-core
-          image: vladi15151/nuclear-bot-core:0.5
+          image: vladi15151/nuclear-bot-core:0.7
           ports:
             - name: http
               containerPort: 8080

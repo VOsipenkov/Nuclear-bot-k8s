@@ -8,11 +8,10 @@ spec:
   rules:
     - http:
         paths:
-          - path: /health
-            pathType: Prefix
+          - pathType: Prefix
             backend:
               service:
-                name: health-app-service
+                name: core-service
                 port:
                   number: 80
           - path: /actuator
