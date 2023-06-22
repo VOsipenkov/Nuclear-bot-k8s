@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nuclear-bot-core
-          image: vladi15151/nuclear-bot-core:0.9.19
+          image: vladi15151/nuclear-bot-core:0.9.23
           ports:
             - name: http
               containerPort: 8080
