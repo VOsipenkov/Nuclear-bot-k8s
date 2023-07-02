@@ -7,7 +7,8 @@ metadata:
 spec:
   replicas: 1
   selector:
-    app: parser-radon-pod
+    matchLabels:
+      app: parser-radon-pod
   template:
     metadata:
       name: parser-radon-pod
