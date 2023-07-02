@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: parser-radon-service
+  labels:
+    app: parser-radon-service
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 8082
+      targetPort: 8080
+      nodePort: 30126
+  selector:
+    app: parser-radon-pod
