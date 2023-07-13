@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: parser-agent-radon-deployment
+  name: core
   labels:
-    app: parser-radon
+    app: core
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: parser-radon-pod
+      app: core-pod
   template:
     metadata:
-      name: parser-radon-pod
+      name: core-pod
       labels:
-        app: parser-radon-pod
+        app: core-pod
     spec:
       containers:
-        - name: parser-radon-pod
-          image: vladi15151/nuclear-bot-parsing-agent-radon:0.1.2
+        - name: nuclear-bot-core
+          image: vladi15151/nuclear-bot-core:1.0.8
           ports:
             - name: http
               containerPort: 8080
