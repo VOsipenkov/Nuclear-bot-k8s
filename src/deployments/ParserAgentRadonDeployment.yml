@@ -17,8 +17,21 @@ spec:
     spec:
       containers:
         - name: parser-radon-pod
-          image: vladi15151/nuclear-bot-parsing-agent-radon:0.1.3
+          image: vladi15151/nuclear-bot-parsing-agent-radon:0.1.5
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
+          volumeMounts:
+            - name: nuclear-radon-config
+              mountPath: /etc/config
+          env:
+            - name: JAVA_OPTS
+              value: -Dspring.config.location=file:/etc/config/application.yml
+      volumes:
+        - name: nuclear-radon-config
+          configMap:
+            name: nuclear-radon-configmap
+            items:
+              - key: application.yml
+                path: application.yml

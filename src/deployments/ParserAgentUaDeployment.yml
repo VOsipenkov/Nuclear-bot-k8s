@@ -17,9 +17,22 @@ spec:
     spec:
       containers:
         - name: parser-ua-pod
-          image: vladi15151/nuclear-bot-parsing-agent-ua:0.6.2
+          image: vladi15151/nuclear-bot-parsing-agent-ua:0.7.1
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
+          volumeMounts:
+            - name: nuclear-ua-config
+              mountPath: /etc/config
+          env:
+            - name: JAVA_OPTS
+              value: -Dspring.config.location=file:/etc/config/application.properties
+      volumes:
+        - name: nuclear-ua-config
+          configMap:
+            name: nuclear-ua-configmap
+            items:
+              - key: application.properties
+                path: application.properties
 

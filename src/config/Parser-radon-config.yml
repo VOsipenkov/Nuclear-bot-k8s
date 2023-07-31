@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-07-31T15:23:46Z"
+  name: nuclear-radon-configmap
+  namespace: default
+  resourceVersion: "5197239"
+  uid: 0cff7ffb-de9e-45a2-9a22-0a50de07d025
+data:
+  application.yml: |-
+    application:
+      parseSiteUrl: https://www.radon.ru/online-map/?city=6
+      xPath: //div[@class='default-bottom-banner']/script[@type='text/javascript']
+    server:
+      port: 8080
+    spring:
+      banner:
+        location: logo.txt
+      kafka:
+        bootstrap-servers: my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+        producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: nuclear.bot.parsing.agent.radon.core.config.MessageAdapter
+          properties:
+            key-class: java.lang.String
+            value-class: nuclear.bot.parsing.agent.radon.core.dto.AgentMessage
+        template:
+          default-topic: parser-event
