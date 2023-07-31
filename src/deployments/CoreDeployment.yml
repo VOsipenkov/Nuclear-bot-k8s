@@ -17,18 +17,21 @@ spec:
     spec:
       containers:
         - name: nuclear-bot-core
-          image: vladi15151/nuclear-bot-core:1.0.9
+          image: vladi15151/nuclear-bot-core:1.0.12
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
           volumeMounts:
-            - name: config
+            - name: nuclear-core-config
               mountPath: /etc/config
+          env:
+            - name: JAVA_OPTS
+              value: -Dspring.config.location=file:/etc/config/application.yml
       volumes:
-        - name: config
+        - name: nuclear-core-config
           configMap:
-            name: myconfig
+            name: nuclear-core-configmap
             items:
               - key: application.yml
                 path: application.yml

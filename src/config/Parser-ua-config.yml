@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-07-31T15:32:59Z"
+  name: nuclear-ua-configmap
+  namespace: default
+  resourceVersion: "5198264"
+  uid: 9c5cba36-6277-4bc6-9da2-834480990b2c
+data:
+  application.properties: |-
+    server.port=8080
+    siteconnection.url=https://www.saveecobot.com/storage/maps_data.js
+    max.radiation.rate=4340
+    refresh.time=30000
+    #core-service
+    core.service.name=core-service
+    core.service.path=/core/health
+    #Kafka
+    spring.kafka.bootstrap-servers=my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+    spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+    spring.kafka.producer.value-serializer=nuclear.bot.core.config.MessageAdapter
+    spring.kafka.producer.properties.key-class=java.lang.String
+    spring.kafka.producer.properties.value-class=nuclear.bot.core.dto.AgentMessage
+    spring.kafka.template.default-topic=parser-event
