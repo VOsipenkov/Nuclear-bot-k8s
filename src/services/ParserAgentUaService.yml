@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: nuclear-bot
   name: parser-ua-service
   labels:
     app: parser-ua-service

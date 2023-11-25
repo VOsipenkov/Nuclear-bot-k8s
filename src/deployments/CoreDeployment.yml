@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: core
+  namespace: nuclear-bot
+  name: core-deployment
   labels:
-    app: core
+    app: core-deployment
 spec:
   replicas: 1
   selector:
@@ -16,22 +17,22 @@ spec:
         app: core-pod
     spec:
       containers:
-        - name: nuclear-bot-core
+        - name: core-pod
           image: vladi15151/nuclear-bot-core:1.0.12
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
           volumeMounts:
-            - name: nuclear-core-config
+            - name: core-configmap
               mountPath: /etc/config
           env:
             - name: JAVA_OPTS
               value: -Dspring.config.location=file:/etc/config/application.yml
       volumes:
-        - name: nuclear-core-config
+        - name: core-configmap
           configMap:
-            name: nuclear-core-configmap
+            name: core-configmap
             items:
               - key: application.yml
                 path: application.yml

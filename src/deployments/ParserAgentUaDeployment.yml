@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: nuclear-bot
   name: parser-agent-ua-deployment
   labels:
     app: parser-ua
@@ -23,15 +24,15 @@ spec:
               containerPort: 8080
               protocol: TCP
           volumeMounts:
-            - name: nuclear-ua-config
+            - name: ua-configmap
               mountPath: /etc/config
           env:
             - name: JAVA_OPTS
               value: -Dspring.config.location=file:/etc/config/application.properties
       volumes:
-        - name: nuclear-ua-config
+        - name: ua-configmap
           configMap:
-            name: nuclear-ua-configmap
+            name: ua-configmap
             items:
               - key: application.properties
                 path: application.properties

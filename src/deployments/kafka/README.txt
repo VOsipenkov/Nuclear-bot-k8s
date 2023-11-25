@@ -6,7 +6,7 @@ kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
 kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
 
 #Create topic
-kubectl create -n kafka -f .\02-Topic.yml
+kubectl create -n kafka -f .\src\deployments\kafka\Topic.yml
 
 #Get list of topics
 kubectl get kafkatopic -n kafka

@@ -2,8 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   creationTimestamp: "2023-07-31T15:32:59Z"
-  name: nuclear-ua-configmap
-  namespace: default
+  name: ua-configmap
+  namespace: nuclear-bot
   resourceVersion: "5198264"
   uid: 9c5cba36-6277-4bc6-9da2-834480990b2c
 data:
