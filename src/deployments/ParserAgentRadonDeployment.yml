@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: parser-radon-pod
-          image: vladi15151/nuclear-bot-parsing-agent-radon:0.1.5
+          image: vladi15151/nuclear-bot-parsing-agent-radon:1.1.0
           ports:
             - name: http
               containerPort: 8080
