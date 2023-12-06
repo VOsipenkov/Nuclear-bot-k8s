@@ -2,37 +2,39 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: nuclear-bot
-  name: parser-agent-radon-deployment
+  name: telegram-deployment
   labels:
-    app: parser-agent-radon-deployment
+    app: telegram
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: parser-radon-pod
+      app: telegram-pod
   template:
     metadata:
-      name: parser-radon-pod
+      name: telegram-pod
       labels:
-        app: parser-radon-pod
+        app: telegram-pod
     spec:
       containers:
-        - name: parser-radon-pod
-          image: vladi15151/nuclear-bot-parsing-agent-radon:0.1.5
+        - name: telegram-pod
+          image: vladi15151/nuclear-bot-telegram:0.0.1
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-          volumeMounts:
-            - name: radon-configmap
-              mountPath: /etc/config
           env:
             - name: JAVA_OPTS
               value: -Dspring.config.location=file:/etc/config/application.yml
+          volumeMounts:
+            - name: telegram-configmap
+              mountPath: /etc/config
       volumes:
-        - name: radon-configmap
+        - name: telegram-configmap
           configMap:
-            name: radon-configmap
+            name: telegram-configmap
             items:
               - key: application.yml
                 path: application.yml
+
+
