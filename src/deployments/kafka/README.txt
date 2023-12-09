@@ -1,10 +1,19 @@
+1)
 https://strimzi.io/quickstarts/
-
 #Create kafka cluster
 kubectl create namespace kafka
 kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
 kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
 
+2)
+#Для обоих деплойментов в namespace kafka прописал новые env и удалелил все старые поды - это костыль чтобы после
+#перезагрузки ноды кафка все равно поднималась взял отсюда https://github.com/strimzi/strimzi-kafka-operator/issues/6821
+            - name: STRIMZI_NAMESPACE
+              value: kafka
+            - name: KUBERNETES_SERVICE_DNS_DOMAIN
+              value: cluster.local
+
+3)
 #Create topic
 kubectl create -n kafka -f .\src\deployments\kafka\Topic.yml
 
