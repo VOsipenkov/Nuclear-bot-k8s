@@ -1,18 +1,14 @@
+########################   Ручной запуск   ########################################
+
 1)
 https://strimzi.io/quickstarts/
 #Create kafka cluster
+
 kubectl create namespace kafka
 kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
 kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
-kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
 
-2) (устарело)
-#Для обоих деплойментов в namespace kafka прописал новые env и удалелил все старые поды - это костыль чтобы после
-#перезагрузки ноды кафка все равно поднималась взял отсюда https://github.com/strimzi/strimzi-kafka-operator/issues/6821
-            - name: STRIMZI_NAMESPACE
-              value: kafka
-            - name: KUBERNETES_SERVICE_DNS_DOMAIN
-              value: cluster.local
+опционально: kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
 
 3)
 #Create topic
@@ -36,3 +32,9 @@ kubectl -n kafka run kafka-producer -ti --image=quay.io/strimzi/kafka:0.35.1-kaf
 
 #Receive messages
 kubectl -n kafka run kafka-consumer -ti --image=quay.io/strimzi/kafka:0.35.1-kafka-3.4.0 --rm=true --restart=Never -- bin/kafka-console-consumer.sh --bootstrap-server my-cluster-kafka-bootstrap:9092 --topic parser-event --from-beginning
+
+
+##############################    Автоматически     ###########################################
+
+Батники start_k8s.bat и stop_k8s.bat
+пересоздается кафку create_new_k8s.bat
