@@ -35,6 +35,18 @@ kubectl -n kafka run kafka-consumer -ti --image=quay.io/strimzi/kafka:0.35.1-kaf
 
 
 ##############################    Автоматически     ###########################################
+статья https://stackoverflow.com/questions/101647/how-to-schedule-a-task-to-run-when-shutting-down-windows
 
-Батники start_k8s.bat и stop_k8s.bat
-пересоздается кафку create_new_k8s.bat
+Батники start_k8s.bat и stop_k8s.bat нужно добавить в Startup Shutdown Logoff как написано в статье
+
+For Startup/Shutdown:
+
+Run gpedit.msc (Local Policies)
+Computer Configuration -> Windows Settings -> Scripts -> Startup or Shutdown -> Properties -> Add
+For Logon/Logoff:
+
+Run gpedit.msc (Local Policies)
+User Configuration -> Windows Settings -> Scripts -> Logon or Logoff -> Properties -> Add
+
+просто пересоздается кафку create_new_k8s.bat
+
