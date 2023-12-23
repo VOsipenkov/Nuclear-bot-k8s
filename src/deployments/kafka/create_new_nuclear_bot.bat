@@ -2,6 +2,11 @@
 
 echo create nuclear-bot
 create namespace nuclear-bot
+kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Core-config.yml
+kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Parser-radon-config.yml
+kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Parser-ua-config.yml
+kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Telegram-config.yml
+timeout 2
 kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\CoreDeployment.yml
 kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\ParserAgentRadonDeployment.yml
 kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\ParserAgentUaDeployment.yml
