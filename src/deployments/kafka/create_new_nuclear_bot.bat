@@ -1,7 +1,8 @@
 @echo OFF
 
 echo create nuclear-bot
-create namespace nuclear-bot
+kubectl delete namespace nuclear-bot
+kubectl create namespace nuclear-bot
 kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Core-config.yml
 kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Parser-radon-config.yml
 kubectl create -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\config\Parser-ua-config.yml
