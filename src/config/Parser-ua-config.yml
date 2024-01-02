@@ -11,7 +11,7 @@ data:
     server.port=8080
     siteconnection.url=https://www.saveecobot.com/storage/maps_data.js
     max.radiation.rate=4340
-    refresh.time=30000
+    refresh.time=60000
     #core-service
     core.service.name=core-service
     core.service.path=/core/health

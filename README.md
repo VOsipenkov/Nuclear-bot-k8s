@@ -21,11 +21,12 @@ about plug in kafka and zookeeper containters
 second
 kubectl port-forward kafka-broker-c856f4d9b-h2279 9092
 
-[//]: # (Connect to database)
+[//]: # (Connect to database)(need to port forward service and connect from subd to it port)
 postgresdb.postgresql.svc.cluster.localhost
 31171
 nuclear
 pgadmin
+
 
 
 
