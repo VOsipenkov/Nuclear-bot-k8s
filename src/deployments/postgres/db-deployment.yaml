@@ -33,7 +33,7 @@ spec:
                 name: db-secret-credentials
           volumeMounts:
             # The volume mounts  for the container
-            - mountPath: /var/lib/postgres/data
+            - mountPath: /var/lib/postgresql/data
               name: db-data
       # Volumes attached to the pod
       volumes:

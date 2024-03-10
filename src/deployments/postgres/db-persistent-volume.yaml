@@ -9,13 +9,14 @@ metadata:
     type: local
     app: postgresdb
 spec:
-  storageClassName: manual
+  storageClassName: local-storage
   capacity:
     # PV Storage capacity
     storage: 1Gi
   # A db can write and read from volumes to multiple pods
   accessModes:
     - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
   # Specify the path to persistent the volumes
   hostPath:
     path: "/data/db"
