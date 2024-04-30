@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: core-pod
-          image: vladi15151/nuclear-bot-core:1.4.01
+          image: vladi15151/nuclear-bot-core:1.4.02
           ports:
             - name: http
               containerPort: 8080
