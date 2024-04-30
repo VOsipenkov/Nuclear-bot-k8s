@@ -53,3 +53,4 @@ data:
         driver-class-name: org.postgresql.Driver
     application:
       name: vlad
+      scheduleTime: 60000
