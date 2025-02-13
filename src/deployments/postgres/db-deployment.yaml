@@ -18,6 +18,13 @@ spec:
         # The label the pods created from the pod template should have
         app: postgresdb
     spec:
+      volumes:
+#        Имя совпадает с именем маунта ниже в разделе volumeMounts
+        - name: postgres-data-gce
+          gcePersistentDisk:
+#            Имя созданного диска на файловой системе командой gcloud compute disks create --size=1GiB --zone=europe-west1-b postgres-gce-disk
+            pdName: postgres-gce-disk
+            fsType: ext4
       containers:
         # The container name to execute pods
         - name: postgresdb
@@ -34,10 +41,11 @@ spec:
           volumeMounts:
             # The volume mounts  for the container
             - mountPath: /var/lib/postgresql/data
-              name: db-data
+              name: postgres-data-gce
+
       # Volumes attached to the pod
-      volumes:
-        - name: db-data
-          persistentVolumeClaim:
-            # reference the PersistentVolumeClaim
-            claimName: db-persistent-volume-claim
+#      volumes:
+#        - name: db-data
+#          persistentVolumeClaim:
+#            # reference the PersistentVolumeClaim
+#            claimName: db-persistent-volume-claim
