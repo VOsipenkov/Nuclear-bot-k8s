@@ -8,7 +8,7 @@ spec:
   storageClassName: local-storage
   accessModes:
     # Allow ReadWrite to multiple pods
-    - ReadWriteMany
+    - ReadWriteOnce
   # PVC requesting resources
   resources:
     requests:

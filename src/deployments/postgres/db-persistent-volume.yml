@@ -15,8 +15,9 @@ spec:
     storage: 1Gi
   # A db can write and read from volumes to multiple pods
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   # Specify the path to persistent the volumes
   hostPath:
-    path: "/data/db"
+    path: "C:/data/db"
+  volumeMode: Filesystem
