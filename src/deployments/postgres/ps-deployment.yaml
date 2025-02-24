@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      # УБРАН securityContext - временно отключаем проверку прав
+#      initContainers:
+#        - name: prepare-data-dir
+#          image: busybox
+#          command:
+#            - "sh"
+#            - "-c"
+#            - |
+#              mkdir -p /var/lib/postgresql/data/postgres-data &&
+#              chmod -R 777 /var/lib/postgresql/data  # Костыль для Windows
+#          volumeMounts:
+#            - name: postgresdata
+#              mountPath: /var/lib/postgresql/data
+      containers:
+        - name: postgres
+          image: postgres:14
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: db-data
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc

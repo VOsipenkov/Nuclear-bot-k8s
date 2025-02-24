@@ -1,0 +1,6 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner  # Локальное хранилище не поддерживает динамическое выделение
+volumeBindingMode: WaitForFirstConsumer  # Том будет привязан при создании Pod
