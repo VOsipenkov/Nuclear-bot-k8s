@@ -25,13 +25,13 @@ kubectl create namespace postgresql
     icacls "C:\data\db\postgres"
 
 #5. ЗАПУСК ПОДОВ
-kubectl apply -f db-persistent-volume.yaml -n postgresql
-kubectl apply -f db-volume-claim.yaml -n postgresql
-kubectl apply -f db-configmap.yaml -n postgresql
-kubectl apply -f db-deployment.yaml -n postgresql
-kubectl apply -f db-service.yaml -n postgresql
+kubectl apply -f postgres-configmap.yaml -n postgresql
+kubectl apply -f psql-pv.yaml -n postgresql
+kubectl apply -f psql-claim.yaml -n postgresql
+kubectl apply -f ps-deployment.yaml -n postgresql
+kubectl apply -f ps-service.yaml -n postgresql
 
-#6. ПРОБРОС ПОДА для Dbeaber
+#6. ПРОБРОС ПОДА для Dbeaver
     kubectl port-forward postgres-574c85c677-qblhl 5432:5432
 
 #7. Первичное подключение к базе
