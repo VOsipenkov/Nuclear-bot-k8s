@@ -32,7 +32,7 @@ kubectl apply -f ps-deployment.yaml -n postgresql
 kubectl apply -f ps-service.yaml -n postgresql
 
 #6. ПРОБРОС ПОДА для Dbeaver
-    kubectl port-forward postgres-574c85c677-qblhl 5432:5432
+    kubectl port-forward postgres-574c85c677-hpkl2 5432:5432 -n postgresql
 
 #7. Первичное подключение к базе
     postgres
