@@ -9,20 +9,6 @@ timeout 60
 kubectl create -n kafka -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\kafka\Topic.yml
 timeout 2
 
-echo create postgresql
-kubectl create namespace postgresql
-echo create posgresql..
-kubectl apply -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\postgres\db-persistent-volume.yaml -n postgresql
-timeout 2
-kubectl apply -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\postgres\db-volume-claim.yaml -n postgresql
-timeout 2
-kubectl apply -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\postgres\db-configmap.yaml -n postgresql
-timeout 2
-kubectl apply -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\postgres\db-deployment.yaml -n postgresql
-timeout 2
-kubectl apply -f C:\learn\Nuclear-bot\Nuclear-bot-k8s\src\deployments\postgres\db-service.yaml -n postgresql
-timeout 2
-
 timeout 2
 echo deploy completed successfully..
 timeout 10
