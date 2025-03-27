@@ -1,3 +1,5 @@
+DEPRECATED!!
+
 @echo OFF
 
 echo create nuclear-bot

@@ -4,6 +4,7 @@
 https://strimzi.io/quickstarts/
 #Create kafka cluster
 
+kubectl delete namespace kafka
 kubectl create namespace kafka
 kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
 kubectl apply -f https://strimzi.io/examples/latest/kafka/kafka-persistent-single.yaml -n kafka
@@ -47,7 +48,7 @@ Run gpedit.msc (Local Policies)
 User Configuration -> Windows Settings -> Scripts -> Logon or Logoff -> Properties -> Add
 
 просто пересоздается кафку create_new_k8s.bat
-
+kubectl patch ns kafka -p '{\"spec\":{\"finalizers\":[]}}' --type=merge
 
 
 
