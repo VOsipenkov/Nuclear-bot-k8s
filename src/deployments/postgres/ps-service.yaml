@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres
+  name: postgresdb
   labels:
-    app: postgres
+    app: postgresdb
 spec:
   type: NodePort
   ports:
