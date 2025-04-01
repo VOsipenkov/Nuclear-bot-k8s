@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: telegram-pod
-          image: vladi15151/nuclear-bot-telegram:0.2.6
+          image: vladi15151/nuclear-bot-telegram:0.3.2
           ports:
             - name: http
               containerPort: 8080
